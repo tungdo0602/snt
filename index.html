@@ -4,6 +4,27 @@
 
     </head>
     <body>
-        <button onclick="new Notification(`Example`)"></button>
+        <script>
+            window.onload = function(){
+                var showNotif = function(){
+                   var notif = new Notification("Example Notification", {
+                       body: 'Example Body'
+                   })
+                   setTimeout(()=>{
+                       notif.close()
+                   }, 15000)
+                   notif.addEventListener("click", function() {
+                       window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+                   })
+                }
+                var requestPerm = async function(){
+                    await Notification.requestPermission()
+                }
+                document.getElementById("button1").onclick = showNotif;
+                document.getElementById("button2").onclick = requestPerm;
+            }
+        </script>
+        <button id="button1">Show Notification</button>
+        <button id="button2">Request Permission</button>
     </body>
 </html>
