@@ -10,10 +10,10 @@
                 var bd = ""
                 var el1 = document.getElementById("ttl")
                 var el2 = document.getElementById("bd")
-                el1.addEventListener("onchange", function(e) {
+                el1.addEventListener("input", function(e) {
                     ttl = e.value
                 })
-                el2.addEventListener("onchange", function(e){
+                el2.addEventListener("input", function(e){
                     bd = e.value
                 })
                 var showNotif = function(title="Example Notification", body='Example Body'){
