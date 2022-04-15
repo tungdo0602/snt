@@ -6,25 +6,41 @@
     <body>
         <script>
             window.onload = function(){
-                var showNotif = function(){
-                   var notif = new Notification("Example Notification", {
-                       body: 'Example Body'
-                   })
-                   setTimeout(()=>{
-                       notif.close()
-                   }, 15000)
-                   notif.addEventListener("click", function() {
-                       window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-                   })
-                }
-                var requestPerm = async function(){
-                    await Notification.requestPermission()
-                }
-                document.getElementById("button1").onclick = showNotif;
-                document.getElementById("button2").onclick = requestPerm;
+                var ttl = ""
+                var bd = ""
+                var el1 = document.getElementById("ttl")
+                var el2 = document.getElementById("bd")
+                el1.addEventListener("onchange", function(e) {
+                    ttl = e.value
+                })
+                el2.addEventListener("onchange", function(e){
+                    bd = e.value
+                })
+                var showNotif = function(title="Example Notification", body='Example Body'){
+                    var notif = new Notification(title, {
+                        body: body
+                    })
+                    setTimeout(()=>{
+                        notif.close()
+                    }, 15000)
+                    notif.addEventListener("click", function() {
+                        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+                    })
+                 }
+                 var requestPerm = async function(){
+                     await Notification.requestPermission()
+                 }
+                 document.getElementById("button1").onclick = function(){
+                     showNotif(ttl, bd)
+                 };
+                 document.getElementById("button2").onclick = requestPerm;
             }
         </script>
-        <button id="button1">Show Notification</button>
+        <label>Title: </label>
+        <input type="text" id="ttl"><br><br>
+        <label>Body: </label>
+        <input type="text" id="bd"><br><br>
+        <button id="button1">Show Notification</button><br><br>
         <button id="button2">Request Permission</button>
     </body>
 </html>
