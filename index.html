@@ -8,17 +8,15 @@
             window.onload = function(){
                 var ttl = "Example Notification"
                 var bd = "Example Body"
-                var el1 = document.getElementById("ttl")
-                var el2 = document.getElementById("bd")
-                el1.addEventListener("input", function(e) {
+                document.getElementById("ttl").addEventListener("input", function(e) {
                     ttl = this.value
                 })
-                el2.addEventListener("input", function(e){
+                document.getElementById("bd").addEventListener("input", function(e){
                     bd = this.value
                 })
-                var showNotif = function(title="Example Notification", body='Example Body'){
-                    var notif = new Notification(title, {
-                        body: body
+                var showNotif = function(tl="Example Notification", b='Example Body'){
+                    var notif = new Notification(tl, {
+                        body: b
                     })
                     setTimeout(()=>{
                         notif.close()
@@ -28,6 +26,7 @@
                     })
                  }
                  document.getElementById("button1").onclick = function(){
+                     print(ttl + " | " + bd)
                      showNotif(ttl, bd)
                  };
                  document.getElementById("button2").onclick = async function(){
