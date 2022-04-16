@@ -43,12 +43,12 @@
                  };
                  document.getElementById("button2").onclick = async function(){
                     var grant = await Notification.requestPermission()
-                    var status = document.createElement("p")
+                    var status = document.createElement("strong")
                     if (grant === 'granted') {
-                        status.style.color = "green"
+                        status.style.color = "#22bb33"
                         status.innerText = "Granted!"
                     } else {
-                        status.style.color = "red"
+                        status.style.color = "#bb2124"
                         status.innerText = "Access Denied!"
                     }
                     document.body.appendChild(status)
