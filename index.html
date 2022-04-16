@@ -43,7 +43,12 @@
                  };
                  document.getElementById("button2").onclick = async function(){
                     var grant = await Notification.requestPermission()
-                    var status = document.createElement("strong")
+                    if (!document.getElementById("statusText")) {
+                        var status = document.createElement("strong")
+                        status.id = "statusText"
+                    } else {
+                        var status = document.getElementById("statusText")
+                    }
                     if (grant === 'granted') {
                         status.style.color = "#22bb33"
                         status.innerText = "Granted!"
@@ -51,7 +56,9 @@
                         status.style.color = "#bb2124"
                         status.innerText = "Access Denied!"
                     }
-                    document.body.appendChild(status)
+                    if (!document.getElementById("statusText")) {
+                        document.body.appendChild(status)
+                    }
                 }
             }
         </script>
