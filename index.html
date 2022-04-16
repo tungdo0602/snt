@@ -42,8 +42,17 @@
                      showNotif(ttl, bd, ics, ca)
                  };
                  document.getElementById("button2").onclick = async function(){
-                    await Notification.requestPermission()
-                };
+                    var grant = await Notification.requestPermission()
+                    var status = document.createElement("p")
+                    if (grant === 'granted') {
+                        status.style.color = "green"
+                        status.innerText = "Granted!"
+                    } else {
+                        status.style.color = "red"
+                        status.innerText = "Access Denied!"
+                    }
+                    document.body.appendChild(status)
+                }
             }
         </script>
         <label>Title: </label>
