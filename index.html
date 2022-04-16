@@ -12,15 +12,20 @@
             window.onload = function(){
                 var ttl = "Example Notification"
                 var bd = "Example Body"
+                var ics = ""
                 document.getElementById("ttl").addEventListener("input", function(e) {
                     ttl = this.value
                 })
                 document.getElementById("bd").addEventListener("input", function(e){
                     bd = this.value
                 })
-                var showNotif = function(tl="Example Notification", b='Example Body'){
+                document.getElementById("ics").addEventListener("input", function(e) {
+                    ics = this.value
+                })
+                var showNotif = function(tl="Example Notification", b='Example Body', ics=null){
                     var notif = new Notification(tl, {
-                        body: b
+                        body: b,
+                        icon: ics
                     })
                     setTimeout(()=>{
                         notif.close()
@@ -30,7 +35,7 @@
                     })
                  }
                  document.getElementById("button1").onclick = function(){
-                     showNotif(ttl, bd)
+                     showNotif(ttl, bd, ics)
                  };
                  document.getElementById("button2").onclick = async function(){
                     await Notification.requestPermission()
@@ -38,7 +43,9 @@
             }
         </script>
         <label>Title: </label>
-        <input type="text" id="ttl"><br><br>
+        <input type="text" id="ttl">
+        <label>Icon Source: </label>
+        <input type="text" id="ics"><br><br>
         <label>Body: </label>
         <input type="text" id="bd"><br><br>
         <button id="button1">Show Notification</button><br><br>
