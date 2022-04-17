@@ -60,6 +60,35 @@
                         document.body.appendChild(status)
                     }
                 }
+                document.getElementById("button3").onclick = function(){
+                var a = window.open("", "_blank")
+a.document.write(`
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blob url example</title>
+</head>
+<body>
+  <input type="file">
+  <img>
+  <p class="p">The URL of this image is : </p>
+</body>
+<script>
+    var Element = document.querySelector('input');
+    var img = document.querySelector('img');
+    Element.addEventListener('change', function() {
+      var url = URL.createObjectURL(Element.files[0]);
+      img.src = url;
+      console.log(url);
+      var d=document.querySelector(".p");
+      d.textContent+=url;
+});
+</script>
+</html>
+`)
+                }
             }
         </script>
         <label>Title: </label>
@@ -72,5 +101,6 @@
         <input type="text" id="ca"><br><br>
         <button id="button1">Show Notification</button><br><br>
         <button id="button2">Request Permission</button>
+        <button id="button3">Test 1</button>
     </body>
 </html>
