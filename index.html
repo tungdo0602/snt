@@ -61,32 +61,7 @@
                     }
                 }
                 document.getElementById("button3").onclick = function(){
-                window.open("", "_blank").document.write(`
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Blob url example</title>
-</head>
-<body>
-  <input type="file">
-  <img>
-  <p class="p">The URL of this image is : </p>
-</body>
-<script>
-    var Element = document.querySelector('input');
-    var img = document.querySelector('img');
-    Element.addEventListener('change', function() {
-      var url = URL.createObjectURL(Element.files[0]);
-      img.src = url;
-      console.log(url);
-      var d=document.querySelector(".p");
-      d.textContent+=url;
-});
-</script>
-</html>
-`)
+                
                 }
             }
         </script>
