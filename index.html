@@ -29,6 +29,7 @@
                 })
                 document.getElementById("curl").addEventListener("input", function(e){
                     curl = this.value
+                    print(curl)
                 })
                 var showNotif = function(tl="Example Notification", b='Example Body', ics=null, ca=10000){
                     var notif = new Notification(tl, {
@@ -65,7 +66,7 @@
                     }
                 }
                 document.getElementById("button3").onclick = function(){
-                    window.open(curl, "_blank").document.write("<html>" + document.documentElement.innerHTML + "</html>")
+                    window.open(curl, "_blank").document.write("<html>" + document.documentElement.innerHTML + "</html>").focus();
                 }
             }
         </script>
